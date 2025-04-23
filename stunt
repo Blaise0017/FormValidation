@@ -1,0 +1,79 @@
+<div class="container">
+    <h1 class="text-center">Register with us</h1>
+    <form id="regForm">
+        <div class="form group">
+          <label>Name</label>
+          <input type="text" class="form-control" id="Name" name="name">
+        </div>
+        <div class="form group">
+            <label>Email</label>
+            <input type="text" class="form-control" id="Email" name="email">
+          </div>
+          <div class="form group">
+            <label>Password</label>
+            <input type="text" class="form-control" id="Password" name="password">
+          </div>
+          <div class="form group">
+            <label>Confirm Password</label>
+            <input type="text" class="form-control" id="password2" name="password2">
+          </div>
+       
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+    <script>
+        function register(e) {
+            e.preventDefault();
+
+          var name = document.getElementById('name').value;
+          var name = document.getElementById('email').value;
+          var name = document.getElementById('password').value;
+          var name = document.getElementById('password2').value;
+          var msg = document.getElementById('msg');
+
+          if (name == '' || email == '' || password == '' || password2 == ''
+          ) {
+            msg.className="alert alert-danger";
+            msg.innerHTML = 'please fill out the form fields';  
+            
+          } else {
+            if (name.length < 3) {
+                msg.className="alert alert-danger";
+                msg.innerHTML = 'name must be at least 3 characters';   
+                
+            } else {
+                var atpos = email.indexOf("@");
+                var dotpos = email.lastIndexOf(".");
+                if (atpos < 1 || dotpos < atpos+2 || dotpos+2 >= email.length) {
+                    msg.className="alert alert-danger";
+                    msg.innerHTML = 'please use valid email';   
+                
+
+                    
+                } else {
+                    if (password != password2) {
+                        msg.className="alert alert-danger";
+                        msg.innerHTML = 'password do not match';   
+                
+                        
+                    } else {
+                        //success
+                        msg.className="alert alert-danger";
+                        msg.innerHTML = name+'is registered with email '+ email;
+                
+                        
+                    }
+                    
+                }
+                
+            }
+           
+          }
+
+        }
+
+        document.getElementById('regForm').addEventListener('Submttted', register,false);
+       
+
+    </script>
